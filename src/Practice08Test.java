@@ -1,3 +1,5 @@
+package src;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Random;
@@ -8,7 +10,7 @@ public class Practice08Test {
 	
 	
 	public Practice08Test () {
-		System.out.println("Starting Practice08Test: binary search trees");
+		System.out.println("Starting src.Practice08Test: binary search trees");
 	}
 	
 	

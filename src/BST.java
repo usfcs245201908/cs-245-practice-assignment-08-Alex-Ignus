@@ -1,50 +1,62 @@
 package src;
 
 public class BST<T> {
+
 	/**
-	 * Definition for a binary tree node.
-	 * public class TreeNode {
-	 *     Comparable data;
-	 *     TreeNode left;
-	 *     TreeNode right;
-	 *     TreeNode(Comparable data) { data = data; }
-	 * }
+	 *
 	 */
-	public class TreeNode {
-		Comparable data;
+	private class TreeNode {
+		Comparable data; //data stored in this node for retrieval and comparison
 		TreeNode left;
 		TreeNode right;
-		
+
+		/**
+		 * @param element the element we are initializing our TreeNode with as data
+		 */
 		public TreeNode(Comparable element){
 			this.data=element;
 			this.right = this.left = null;
 		}
 	}
-	
+
+	/**
+	 * Initial start of the tree
+	 */
 	public TreeNode root;
-	
 
-	
-	public void insert (Comparable element) {
 
-		root = insert (root, element);
-	}
-	
+	/**
+	 * @param element the comparable object to added into our tree
+	 */
+	public void insert (Comparable element) { root = insert (root, element); }
+
+	/**
+	 * @param element the comparable object to search for in our tree
+	 * @return true if present, false if element is not present in the tree
+	 */
 	public boolean find (Comparable element) {
 		return find (root, element);
 	}
-	
-	
-	public void delete (Comparable element) {
-		root = delete(root, element);
 
-	}
-	
+	/**
+	 * @param element the comparable object to remove from our tree
+	 *
+	 */
+	public void delete (Comparable element) { root = delete(root, element); }
+
+	/**
+	 * Prints out the Binary Search tree starting from root
+	 */
 	public void print () {
 		print (root);
 	}
-	
-	
+
+
+	/**
+	 * @param tree The root of our tree to added too
+	 * @param element the comparable object to added into our tree
+	 * @return returns the tree after creation or insertion
+	 */
 	private TreeNode insert(TreeNode tree, Comparable element){
 		if(tree==null){
 			return new TreeNode(element);
@@ -57,6 +69,12 @@ public class BST<T> {
 			return tree;
 		}
 	}
+
+	/**
+	 * @param tree the tree we are searching in
+	 * @param element the comparable object to search for in our tree
+	 * @return boolean: True if element is in the tree, false if its not
+	 */
 	private boolean find(TreeNode tree, Comparable element){
 		if(tree == null){
 			return false;
@@ -70,6 +88,12 @@ public class BST<T> {
 			return find (tree.right, element);
 		}
 	}
+
+	/**
+	 * @param tree The tree we are traversing to remove the element from.
+	 * @param element the element we are going to remove from our tree
+	 * @return the newly edited tree
+	 */
 	private TreeNode delete(TreeNode tree, Comparable element){
 		if(tree == null){
 			return null;
@@ -99,6 +123,10 @@ public class BST<T> {
 		}
 	}
 
+	/**
+	 * @param tree the tree we are going to remove from
+	 * @return the smallest object found in the tree
+	 */
 	private Comparable removeSmallest(TreeNode tree){
 		if(tree.left.left == null){
 			Comparable smallest = tree.left.data;
@@ -109,6 +137,9 @@ public class BST<T> {
 		}
 	}
 
+	/**
+	 * @param tree the tree we are going to print
+	 */
 	private void print(TreeNode tree){
 		if(tree != null){
 			print (tree.left);
