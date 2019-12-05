@@ -1,6 +1,4 @@
-package src;
-
-public class BST<T> {
+public class BST<String> {
 
 	/**
 	 *
